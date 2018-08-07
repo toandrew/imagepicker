@@ -12,11 +12,10 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
     }
 }
-apply plugin: 'com.jfrog.bintray'
 
 allprojects {
     repositories {
@@ -57,17 +56,4 @@ dependencies {
     compile 'com.github.chrisbanes.photoview:library:1.2.4'
 }
 
-
-bintray {
-    user = 'zember'
-    key = 'cc0afca34eb49fb3ee47a8913b977c61d1aeb473'
-
-    pkg {
-        repo = 'maven'
-        name = 'imagepicker'
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
-    }
-}
-
-//apply from: '../bintray.gradle'
+apply from: 'publish.gradle'
